@@ -1,0 +1,42 @@
+version: "3.8"
+services:
+  app:
+    image: myapp:latest
+    build:
+      context: .
+      target: dev
+      labels:
+        - "com.example.description=My App Development Environment"
+      tags:
+        - "development"
+    ports:
+      - "3900:3900"
+    environment:
+      - NODE_ENV=dev
+    # volumes:
+    #   - .:/app
+    #   - ./app/node_modules
+    networks:
+      - mynetwork
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - mynetwork
+  redis:
+    image: redis:latest
+    ports:
+      - "6380:6379"
+    networks:
+      - mynetwork
+networks:
+  mynetwork:
+    driver: bridge
+volumes:
+  mongo-data:
+    driver: local
+  redis-data:
+    driver: local
