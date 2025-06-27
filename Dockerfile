@@ -8,8 +8,6 @@ WORKDIR /app
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
-# Ignore node_modules and other unnecessary files
-COPY .dockerignore ./
 # Install dependencies
 RUN npm install
 

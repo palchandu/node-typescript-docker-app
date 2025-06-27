@@ -13,23 +13,30 @@ services:
       - "3900:3900"
     environment:
       - NODE_ENV=dev
+      - MONGO_URI=mongodb://mongo:27017/mydatabase
+      - REDIS_URL=redis://redis:6379
     # volumes:
     #   - .:/app
-    #   - ./app/node_modules
     networks:
       - mynetwork
+    depends_on:
+      - mongo
+      - redis
+    restart: always
   mongo:
     image: mongo:latest
     ports:
-      - "27017:27017"
+      - "27018:27017"
     volumes:
       - mongo-data:/data/db
     networks:
       - mynetwork
   redis:
     image: redis:latest
-    ports:
-      - "6380:6379"
+    # ports:
+    #   - "6380:6379"
+    volumes:
+      - redis-data:/data
     networks:
       - mynetwork
 networks:
@@ -38,5 +45,10 @@ networks:
 volumes:
   mongo-data:
     driver: local
+    # provide name for the volume
+    name: mongo-data
+
   redis-data:
     driver: local
+    # provide name for the volume
+    name: redis-data
