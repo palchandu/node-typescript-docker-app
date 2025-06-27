@@ -1,0 +1,8 @@
+name: Date and time workflow
+on: [push, pull_request]
+jobs:
+  show-date-time:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show date and time
+        run: date
