@@ -1,0 +1,38 @@
+name: Show GitHub Details
+on: [push, pull_request]
+jobs:
+  show-details:
+       runs-on: ubuntu-latest
+       steps:
+         - name: Show GitHub details
+           run: |
+             echo "Repository: ${{ github.repository }}"
+             echo "Branch: ${{ github.ref }}"
+             echo "Commit: ${{ github.sha }}"
+             echo "Actor: ${{ github.actor }}"
+             echo "Event: ${{ github.event_name }}"
+             echo "Workflow: ${{ github.workflow }}"
+             echo "Run ID: ${{ github.run_id }}"
+             echo "Run Number: ${{ github.run_number }}"
+             echo "Job: ${{ github.job }}"
+             echo "Action: ${{ github.action }}"
+             echo "Event Path: ${{ github.event_path }}"
+             echo "Workspace: ${{ github.workspace }}"
+             echo "GITHUB_ACTIONS: ${{ github.action }}"
+             echo "GITHUB_EVENT_NAME: ${{ github.event_name }}"
+             echo "GITHUB_WORKFLOW: ${{ github.workflow }}"
+             echo "GITHUB_RUN_ID: ${{ github.run_id }}"
+             echo "GITHUB_RUN_NUMBER: ${{ github.run_number }}"
+             echo "GITHUB_JOB: ${{ github.job }}"
+             echo "GITHUB_SHA: ${{ github.sha }}"
+             echo "GITHUB_REF: ${{ github.ref }}"
+             echo "GITHUB_REPOSITORY: ${{ github.repository }}"
+             echo "GITHUB_ACTOR: ${{ github.actor }}"
+             echo "GITHUB_WORKSPACE: ${{ github.workspace }}"
+             echo "GITHUB_EVENT_PATH: ${{ github.event_path }}"
+             echo "GITHUB_ACTION: ${{ github.action }}"
+             echo "GITHUB_API_URL: ${{ github.api_url }}"
+             echo "GITHUB_GRAPHQL_URL: ${{ github.graphql_url }}"
+             echo "GITHUB_SERVER_URL: ${{ github.server_url }}"
+             echo "GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}"
+
