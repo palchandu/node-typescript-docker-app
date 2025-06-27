@@ -1,4 +1,5 @@
 // user controller
+// custum controller for user operations
 import { Request, Response } from "express";
 import userService from "../services/user.service";
 
