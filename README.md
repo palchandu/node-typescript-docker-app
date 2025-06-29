@@ -5,3 +5,4 @@
 - [Docker Compose](https://www.geeksforgeeks.org/devops/docker-compose/)
 
 - [Writing Docker compose file](https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json)
+- [GitHub Actions tutorial in Hindi - Automate deployment to github pages & Sonar Cloud Integration](https://www.youtube.com/watch?v=ookIfjc8dW0&t=21s)
