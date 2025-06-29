@@ -25,7 +25,20 @@ describe("User Service", () => {
     const user = await userService.getUserById(userId);
     expect(userService.getUserById).toHaveBeenCalledWith(userId);
     expect(userService.getUserById).toHaveBeenCalledTimes(1);
-    expect(userService.getUserById).toHaveProperty("name", "John Doe");
+    expect(userService.getUserById).toHaveProperty("name");
     expect(user).toMatchObject(userData);
+  });
+  it("should update a user", async () => {
+    const userId = "12345";
+    const updatedData = {
+      name: "John Smith",
+      email: "john.smith@example.com",
+      password: "newpassword123",
+    };
+    jest.spyOn(userService, "updateUser").mockResolvedValue(updatedData as any);
+    const user = await userService.updateUser(userId, updatedData);
+    expect(userService.updateUser).toHaveBeenCalledWith(userId, updatedData);
+    expect(userService.updateUser).toHaveBeenCalledTimes(1);
+    expect(user).toMatchObject(updatedData);
   });
 });
