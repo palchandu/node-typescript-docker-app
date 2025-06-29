@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "tsc-watch --onSuccess \"npm start\"",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "jest --config jest.config.js",
+    "test:watch": "jest --watch --config jest.config.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +17,10 @@
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
+    "@types/jest": "^30.0.0",
+    "jest": "^30.0.3",
+    "supertest": "^7.1.1",
+    "ts-jest": "^29.4.0",
     "tsc-watch": "^7.1.1",
     "typescript": "^5.8.3"
   },
